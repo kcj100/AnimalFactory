@@ -1,8 +1,9 @@
 package rocks.zipcodewilmington;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import rocks.zipcodewilmington.animals.Dog;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * @author leon on 4/19/18.
@@ -26,6 +27,6 @@ public class DogTest {
 
         // Then (we expect to get the given name from the dog)
         String dogName = dog.getName();
-        Assert.assertEquals(dogName, givenName);
+        assertEquals(dogName, givenName);
     }
 }

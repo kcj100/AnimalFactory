@@ -1,6 +1,5 @@
 package rocks.zipcodewilmington;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import rocks.zipcodewilmington.animals.Dog;
 import rocks.zipcodewilmington.animals.animal_creation.AnimalFactory;
 import rocks.zipcodewilmington.animals.animal_storage.DogHouse;
