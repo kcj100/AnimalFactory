@@ -2,11 +2,14 @@ package rocks.zipcodewilmington;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Cat;
+import rocks.zipcodewilmington.animals.Mammal;
 
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author leon on 4/19/18.
@@ -23,8 +26,77 @@ public class CatTest {
 
     @BeforeEach
     public void setUp() {
-
+        String givenName = "Zula";
+        Date givenBirthDate = new Date();
+        Integer givenId = 0;
         cat = new Cat(givenName, givenBirthDate, givenId);
+    }
+
+    @Test
+    void setNameTest() {
+        String givenName = "Zula";
+        Date givenBirthDate = new Date();
+        Integer givenId = 0;
+        Cat cat = new Cat("", givenBirthDate, givenId);
+        cat.setName(givenName);
+        assertEquals(givenName, cat.getName());
+    }
+
+    @Test
+    void setBirthDateTest() {
+        String givenName = "Zula";
+        Date givenBirthDate = new Date(2000,2,23);
+        Integer givenId = 0;
+        Cat cat = new Cat("", new Date(), givenId);
+        cat.setBirthDate(givenBirthDate);
+        assertEquals(givenBirthDate, cat.getBirthDate());
+    }
+
+    @Test
+    void speakTest() {
+        String givenName = "Zula";
+        Date givenBirthDate = new Date(2000,2,23);
+        Integer givenId = 0;
+        Cat cat = new Cat("", givenBirthDate, givenId);
+        assertEquals("meow!", cat.speak());
+    }
+
+    @Test
+    void eatTest() {
+        String givenName = "Zula";
+        Date givenBirthDate = new Date(2000,2,23);
+        Integer givenId = 0;
+        Cat cat = new Cat("", givenBirthDate, givenId);
+        assertEquals(0, cat.getNumberOfMealsEaten());
+        cat.eat(new Food());
+        assertEquals(1, cat.getNumberOfMealsEaten());
+    }
+
+    @Test
+    void getIdTest() {
+        String givenName = "Zula";
+        Date givenBirthDate = new Date(2000,2,23);
+        Integer givenId = 0;
+        Cat cat = new Cat("", givenBirthDate, givenId);
+        assertEquals(givenId, cat.getId());
+    }
+
+    @Test
+    void testAnimalInheritance() {
+        String givenName = "Zula";
+        Date givenBirthDate = new Date(2000,2,23);
+        Integer givenId = 0;
+        Cat cat = new Cat("", givenBirthDate, givenId);
+        assertTrue(cat instanceof Animal);
+    }
+
+    @Test
+    void testMammalInheritance() {
+        String givenName = "Zula";
+        Date givenBirthDate = new Date(2000,2,23);
+        Integer givenId = 0;
+        Cat cat = new Cat("", givenBirthDate, givenId);
+        assertTrue(cat instanceof Mammal);
     }
 
     @Test
